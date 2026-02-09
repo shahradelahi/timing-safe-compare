@@ -1,6 +1,6 @@
 {
   "name": "@se-oss/timing-safe-compare",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Constant-time string and buffer comparison for Node.js and browsers.",
   "keywords": [
     "timing-safe",
