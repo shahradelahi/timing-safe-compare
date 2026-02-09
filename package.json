@@ -1,0 +1,62 @@
+{
+  "name": "@se-oss/timing-safe-compare",
+  "version": "0.0.0",
+  "description": "Constant-time string and buffer comparison for Node.js and browsers.",
+  "keywords": [
+    "timing-safe",
+    "compare",
+    "crypto",
+    "isomorphic"
+  ],
+  "homepage": "https://github.com/shahradelahi/timing-safe-compare",
+  "repository": "github:shahradelahi/timing-safe-compare",
+  "license": "MIT",
+  "author": "Shahrad Elahi <shahrad@litehex.com> (https://github.com/shahradelahi)",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "node": {
+        "import": "./dist/node.js",
+        "require": "./dist/node.cjs"
+      },
+      "default": {
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/node.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist/**",
+    "!**/*.d.cts"
+  ],
+  "scripts": {
+    "bench": "vitest bench --run",
+    "build": "pnpm typecheck && tsup",
+    "clean": "git clean -dfx **/node_modules/** dist .tsbuildinfo",
+    "dev": "tsup --watch",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "pnpm typecheck && eslint .",
+    "lint:fix": "eslint --fix .",
+    "prepublishOnly": "pnpm build && pnpm lint && pnpm format:check && pnpm test",
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit"
+  },
+  "prettier": "@shahrad/prettier-config",
+  "devDependencies": {
+    "@shahrad/eslint-config": "^1.0.1",
+    "@shahrad/prettier-config": "^1.2.2",
+    "@shahrad/tsconfig": "^1.2.0",
+    "@types/node": "^24.10.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.7.0",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  },
+  "packageManager": "pnpm@10.23.0+sha512.21c4e5698002ade97e4efe8b8b4a89a8de3c85a37919f957e7a0f30f38fbc5bbdd05980ffe29179b2fb6e6e691242e098d945d1601772cad0fef5fb6411e2a4b"
+}
